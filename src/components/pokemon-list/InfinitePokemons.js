@@ -219,7 +219,7 @@ export default function InfinitePokemons() {
                                     padding: 10,
                                 }}>
                                     {striped2 = ! striped2}
-                                    <Link to={ '/pokemons/' + pokemon.name } css={ css(boxStyle, {backgroundColor: pokemon.color}) }>
+                                    <Link to={ '/pokemon/' + pokemon.name } css={ css(boxStyle, {backgroundColor: pokemon.color}) }>
 
                                         <div css={ css(
                                             pIdStyle,

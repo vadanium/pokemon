@@ -25,7 +25,7 @@ export default function Home() {
                 <div css={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', textAlign: 'center' }}>
                     <ul>
                         <li css={menu}>
-                            <Link to="/pokemons">Pokemon List</Link>
+                            <Link to="/pokemon">Pokemon List</Link>
                         </li>
                         <li css={menu}>
                             <Link to="/my-pokemon">My Pokemon</Link>

@@ -14,12 +14,12 @@ import NoMatch from './pages/NoMatch'
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/pokemons">
+          <Route path="/pokemon">
             <PokemonList />
           </Route>
           <Route path="/my-pokemon">
