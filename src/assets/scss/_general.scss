@@ -1,0 +1,52 @@
+body, html {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-weight: 400;
+    color: $main-color;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    padding-bottom: 15px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+ul {
+    &.list-inline {
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.bold {
+    font-weight: 700;
+}
