@@ -2,7 +2,6 @@
 import React, { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import Modal from '../components/utils/Modal'
-import Header from '../components/template/Header'
 
 export default function MyPokemon() {
     const myPokemon = JSON.parse(localStorage.getItem('myPokemon') || '[]')
@@ -82,7 +81,6 @@ export default function MyPokemon() {
 
     return (
         <>
-            <Header />
             <div className="container" css={{ marginTop: 80, padding: 15 }}>
                 <div css={row}>
                     {[...Array(2).keys()].map(x => (

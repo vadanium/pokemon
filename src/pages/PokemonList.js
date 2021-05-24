@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
-import Header from '../components/template/Header'
 
 // componets
 // get pokemons list
@@ -20,7 +19,6 @@ export default function PokemonList() {
         <div>
             <Switch>
                 <Route exact path={path}>
-                    <Header />
                     <div className="container" css={{marginTop: 80}}>
                         <GetPokemons />
                     </div>

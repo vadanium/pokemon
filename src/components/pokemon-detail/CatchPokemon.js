@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React, { useContext, useRef, useState } from 'react'
 import { css, keyframes } from '@emotion/react'
-import { PokemonContext, BaseColorContext, RefreshCountPokemon } from '../../pages/PokemonDetail'
+import { PokemonContext, BaseColorContext } from '../../pages/PokemonDetail'
+import { RefreshCountPokemon } from '../../App'
 import Modal from '../../components/utils/Modal'
 
 import pokeballImgClose from '../../assets/img/pokeball-close.png'

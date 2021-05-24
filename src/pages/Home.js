@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/template/Header'
 import pokeBg from '../assets/img/poke-bg.png'
 
 const menu = {
@@ -24,7 +23,6 @@ const menu = {
 export default function Home() {
     return (
         <>
-            <Header />
             <div css={{ position: 'fixed', width: '100%', height: '100%', top: 0, left: 0, backgroundImage: `url(${pokeBg})`, backgroundSize: 400, backgroundPosition: 'bottom', backgroundRepeat: 'no-repeat' }}>
                 <div css={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', textAlign: 'center' }}>
                     <ul>

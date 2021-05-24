@@ -1,10 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import logo from '../../assets/img/Poketo.png'
 import pokeballImgClose from '../../assets/img/pokeball-close.png'
 
 export default function Header() {
+    const history = useHistory();
+    const location = useLocation();
+
     const countPokemon = () => {
         const poke = JSON.parse(localStorage.getItem('myPokemon') || '[]')
 
@@ -24,6 +27,8 @@ export default function Header() {
         }}>
             <div className="container" css={{ textAlign: 'center' }}>
                 <div css={{display: 'flex', alignItems: 'center'}}>
+                    {location.pathname !== '/' &&
+                    <button css={{backgroundColor: 'transparent', border: 'none', color: 'inherit', fontFamily: 'inherit', fontSize: 28, cursor: 'pointer'}} onClick={ () => history.goBack() }>{ '<-' }</button>}
                     <div css={{justifyItems: 'center', flex: '1'}}>
                         <Link to="/">
                             <img src={ logo } css={{ height: 50 }} alt="logo" />
