@@ -103,8 +103,8 @@ export default function CatchPokemon() {
         const save = savePokemon()
         if(!save.status) return setErrorMessage(save.message)
 
-        refreshCountPokemon()
         reset()
+        refreshCountPokemon()
     }
 
     const nameOnChange = () => {

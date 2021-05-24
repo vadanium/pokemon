@@ -1,9 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Modal from '../components/utils/Modal'
+import { RefreshCountPokemon } from '../App'
 
 export default function MyPokemon() {
+    const refreshCountPokemon = useContext(RefreshCountPokemon)
     const myPokemon = JSON.parse(localStorage.getItem('myPokemon') || '[]')
     const [pokemonList, setPokemonList] = useState(myPokemon)
     const [showModal, setShowModal] = useState()
@@ -33,6 +35,7 @@ export default function MyPokemon() {
         localStorage.setItem('myPokemon', JSON.stringify(pokemons))
         setPokemonList(pokemons)
         setShowModal(0)
+        refreshCountPokemon()
     }
 
     const breakpoints = [576, 768, 992, 1200]
