@@ -14,6 +14,7 @@ export default function InfinitePokemons() {
         offset: 0,
         end: false
     });
+
     const { loading, error, data } = useQuery(POKEMONS, {
         variables: {
             limit: pageSettings.limit,
@@ -76,18 +77,18 @@ export default function InfinitePokemons() {
 
         observer.current = new IntersectionObserver(bottom => {
             if(bottom[0].isIntersecting && ! loading) {
-                setPageSettings(page => {
-                    return {
-                        ...page,
-                        offset: data.pokemons.nextOffset
-                    }
-                });
-
                 if(! data.pokemons.nextOffset) {
                     setPageSettings(page => {
                         return {
                             ...page,
                             end: true
+                        }
+                    });
+                } else {
+                    setPageSettings(page => {
+                        return {
+                            ...page,
+                            offset: data.pokemons.nextOffset
                         }
                     });
                 }
@@ -103,13 +104,13 @@ export default function InfinitePokemons() {
      */
     useEffect(() => {
         if(data && data.pokemons.results.length > 0 && !loading) {
-            setPokemons((a) => {
-                const i = data && data.pokemons.results;
+            setPokemons((prev) => {
+                const poke = data && data.pokemons.results;
                 return [
-                    ...a,
-                    ...i.map(b => {
+                    ...prev,
+                    ...poke.map(p => {
                         return {
-                            ...b,
+                            ...p,
                             color: color[Math.floor(Math.random() * 4)]
                         }
                     })
@@ -203,7 +204,7 @@ export default function InfinitePokemons() {
     }
 
     return (
-        <div css={{ marginTop: 50, marginLeft: -10, marginRight: -10, marginBottom: 50 }}>
+        <div css={{ marginLeft: -10, marginRight: -10, marginBottom: 50 }}>
             <ul className="pokemon-list" css={{ display: 'flex' }}>
                 {pokemons &&
                     [...Array(column).keys()].map(i => (

@@ -14,6 +14,10 @@ body {
     color: $main-color;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 a {
     text-decoration: none;
 }

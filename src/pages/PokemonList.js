@@ -21,9 +21,7 @@ export default function PokemonList() {
             <Switch>
                 <Route exact path={path}>
                     <Header />
-                    <div className="container">
-                        <h2>Pokemons</h2>
-
+                    <div className="container" css={{marginTop: 80}}>
                         <GetPokemons />
                     </div>
                 </Route>

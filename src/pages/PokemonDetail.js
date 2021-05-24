@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import { POKEMON } from '../graphql/PokemonQuery'
@@ -14,10 +14,12 @@ export const PokemonContext = React.createContext()
 // base color
 export const BaseColorContext = React.createContext()
 
+export const RefreshCountPokemon = React.createContext()
+
 export default function PokemonDetail() {
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
-    let { pokemonName } = useParams();
+    const { pokemonName } = useParams();
 
     const { loading, error, data } = useQuery(POKEMON, {
         variables: {
@@ -34,15 +36,23 @@ export default function PokemonDetail() {
     ];
 
     const baseColor = color[Math.floor(Math.random() * 4)];
-    
+
+    // for update my pokemon number on header
+    const [countPokemon, setCountPokemon] = useState(true)
+    const refreshCountPokemon = () => {
+        setCountPokemon(!countPokemon)
+    }
+
     return (
         <>
             <PokemonContext.Provider value={{ loading, error, data }}>
                 <BaseColorContext.Provider value={ baseColor }>
-                    <Header />
-                    <HeaderContent />
-                    <DetailContent />
-                    <CatchPokemon />
+                    <RefreshCountPokemon.Provider value={refreshCountPokemon}>
+                        <Header />
+                        <HeaderContent />
+                        <DetailContent />
+                        <CatchPokemon />
+                    </RefreshCountPokemon.Provider>
                 </BaseColorContext.Provider>
             </PokemonContext.Provider>
 

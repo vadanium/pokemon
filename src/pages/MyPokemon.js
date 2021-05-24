@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import Modal from '../components/utils/Modal'
 import Header from '../components/template/Header'
 
@@ -7,7 +8,7 @@ export default function MyPokemon() {
     const myPokemon = JSON.parse(localStorage.getItem('myPokemon') || '[]')
     const [pokemonList, setPokemonList] = useState(myPokemon)
     const [showModal, setShowModal] = useState()
-    const [dalete, setDelete]  = useState()
+    const [pokeRelease, setDelete]  = useState()
 
     // box color
     const color = useMemo(() => [
@@ -25,7 +26,7 @@ export default function MyPokemon() {
 
     const removePokemon = () => {
         const pokemons =  myPokemon.filter(item => {
-            item.pokemons = item.pokemons.filter(poke => poke.name !== dalete.name)
+            item.pokemons = item.pokemons.filter(poke => poke.name !== pokeRelease.name)
             if(!item.pokemons.length) return false
             return item
         })
@@ -54,13 +55,13 @@ export default function MyPokemon() {
     }
 
     const buttonReleaseStyle = {
-        margin: 15,
         border: 'none',
         fontFamily: 'inherit',
         borderRadius: 5,
         cursor: 'pointer',
         backgroundColor: '#fb6c6c',
         color: '#fff',
+        fontSize: 18,
         '&:hover': {
             backgroundColor: '#e24d4d'
         }
@@ -94,13 +95,13 @@ export default function MyPokemon() {
                                             <div>
                                                 <div><img src={ item.image } alt={ item.name } /></div>
                                             </div>
-                                            <h4 css={{ paddingLeft: 15, fontSize: 28, fontWeight: 700, textTransform: 'capitalize' }}>{ item.name }</h4>
+                                            <Link to={'/pokemon/'+item.name } css={{ paddingLeft: 15, fontSize: 28, fontWeight: 700, textTransform: 'capitalize', color: '#3a3a3a' }}>{ item.name }</Link>
                                         </div>
                                     </div>
                                     <div css={{backgroundColor: '#f9f9f9', borderRadius: '0 0 8px 8px', overflow: 'hidden'}}>
                                         {item.pokemons.map(poke => (
                                             <div key={ poke.name } css={{ padding: 15, display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #f0f0f0' }}>
-                                                <span css={{textTransform: 'capitalize'}}>{ poke.name }</span>
+                                                <span css={{textTransform: 'capitalize', fontSize: 18}}>{ poke.name }</span>
                                                 <button css={buttonReleaseStyle} onClick={ () => handleRemove(item.id, poke.name) }>Release</button>
                                             </div>
                                         ))}
@@ -110,16 +111,17 @@ export default function MyPokemon() {
                         </div>
                     ))}
                 </div>
-
+                
+                {showModal === 1 &&
                 <Modal show={ showModal }>
                     <div css={{ textAlign: 'center' }}>
-                        <h4 css={{ marginBottom: 15, fontSize: 24 }}>Are you sure?</h4>
+                        <h4 css={{ marginBottom: 15, fontSize: 24 }}>Are you sure release { pokeRelease.name }?</h4>
                         <div>
-                            <button css={{...buttonStyle, backgroundColor: '#47cfaf',}} onClick={ removePokemon }>Ya</button>
-                            <button css={{...buttonStyle, backgroundColor: '#fb6c6c',}} onClick={ () => setShowModal(0) }>Batal</button>
+                            <button css={{...buttonStyle, backgroundColor: '#47cfaf',}} onClick={ removePokemon }>Yes</button>
+                            <button css={{...buttonStyle, backgroundColor: '#fb6c6c',}} onClick={ () => setShowModal(0) }>No</button>
                         </div>
                     </div>
-                </Modal>
+                </Modal>}
 
                 {!pokemonList.length &&
                     <div css={{textAlign: 'center', fontSize: 18}}>

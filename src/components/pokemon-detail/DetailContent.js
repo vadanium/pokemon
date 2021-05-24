@@ -14,6 +14,7 @@ export default function DetailContent() {
     const wrapper = {
         marginTop: 250,
         paddingTop: 50,
+        paddingBottom: 50,
         borderRadius: '30px 30px 0 0',
         backgroundColor: '#fff',
         position: 'relative'
@@ -91,7 +92,7 @@ export default function DetailContent() {
 
                     <div className="row">
                         <Tabs color={ baseColor }>
-                            <div label="About">
+                            <div label="About" >
                                 <div css={ tabContentWrapStyle }>
                                     <div css={ row }>
                                         <span css={ colLeft }>Species</span>

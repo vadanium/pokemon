@@ -24,6 +24,9 @@ function Tabs(props) {
         fontFamily: 'inherit',
         color: 'inherit',
         fontSize: 18,
+        '&:focus': {
+            backgroundColor: 'transparent'
+        },
         '&.active': {
             fontWeight: 700,
         }
