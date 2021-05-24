@@ -26,15 +26,15 @@ export default function Header() {
             zIndex: 999
         }}>
             <div className="container" css={{ textAlign: 'center' }}>
-                <div css={{display: 'flex', alignItems: 'center'}}>
+                <div css={{display: 'flex', alignItems: 'center', position: 'relative'}}>
                     {location.pathname !== '/' &&
-                    <button css={{backgroundColor: 'transparent', border: 'none', color: 'inherit', fontFamily: 'inherit', fontSize: 28, cursor: 'pointer'}} onClick={ () => history.goBack() }>{ '<-' }</button>}
+                    <button css={{backgroundColor: 'transparent', border: 'none', color: 'inherit', fontFamily: 'inherit', fontSize: 28, cursor: 'pointer', position: 'absolute'}} onClick={ () => history.goBack() }>{ '<-' }</button>}
                     <div css={{justifyItems: 'center', flex: '1'}}>
                         <Link to="/">
                             <img src={ logo } css={{ height: 50 }} alt="logo" />
                         </Link>
                     </div>
-                    <Link to="/my-pokemon">
+                    <Link to="/my-pokemon" css={{position: 'absolute', right: 0}}>
                         <div css={{display: 'flex'}}>
                             <img css={{ height: 30 }} src={pokeballImgClose} alt="pokeball" />
                             <span css={{lineHeight: '30px', fontWeight: 700}}>{ countPokemon() }</span> 
