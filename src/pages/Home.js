@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react'
 import { Link } from 'react-router-dom'
 import pokeBg from '../assets/img/poke-bg.png'
 

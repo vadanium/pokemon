@@ -10,12 +10,8 @@ import NoMatch from './NoMatch'
 
 // create context for pokemon detail from api
 export const PokemonContext = React.createContext()
-// base color
-export const BaseColorContext = React.createContext()
 
 export default function PokemonDetail() {
-    // We can use the `useParams` hook here to access
-    // the dynamic pieces of the URL.
     const { pokemonName } = useParams();
 
     const { loading, error, data } = useQuery(POKEMON, {
@@ -36,12 +32,10 @@ export default function PokemonDetail() {
 
     return (
         <>
-            <PokemonContext.Provider value={{ loading, error, data }}>
-                <BaseColorContext.Provider value={ baseColor }>
-                    <HeaderContent />
-                    <DetailContent />
-                    <CatchPokemon />
-                </BaseColorContext.Provider>
+            <PokemonContext.Provider value={{ loading, error, data, baseColor }}>
+                <HeaderContent />
+                <DetailContent />
+                <CatchPokemon />
             </PokemonContext.Provider>
 
             {error &&

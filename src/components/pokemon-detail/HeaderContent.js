@@ -1,14 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import React, { useContext } from 'react'
-import { PokemonContext, BaseColorContext } from '../../pages/PokemonDetail'
+import { useContext } from 'react'
+import { PokemonContext } from '../../pages/PokemonDetail'
 import LoadingBox from '../utils/LoadingBox'
 import { css } from '@emotion/react'
 
 export default function HeaderContent() {
     // get pokemon data
-    const { loading, error, data } = useContext(PokemonContext)
-    // base color
-    const baseColor = useContext(BaseColorContext)
+    const { loading, error, data, baseColor } = useContext(PokemonContext)
 
     const wrapper = {
         width: '100%',

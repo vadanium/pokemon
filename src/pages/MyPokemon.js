@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useMemo, useContext } from 'react'
+import { useState, useMemo, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Modal from '../components/utils/Modal'
 import { RefreshCountPokemon } from '../App'

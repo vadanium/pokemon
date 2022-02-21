@@ -2,14 +2,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Tabs from '../utils/Tabs'
 import LoadingBox from '../utils/LoadingBox'
-import { PokemonContext, BaseColorContext } from '../../pages/PokemonDetail'
+import { PokemonContext } from '../../pages/PokemonDetail'
 import { css } from '@emotion/react'
 
 export default function DetailContent() {
     // get pokemon data
-    const { loading, error, data } = useContext(PokemonContext)
-    // base color
-    const baseColor = useContext(BaseColorContext)
+    const { loading, error, data, baseColor } = useContext(PokemonContext)
 
     const wrapper = {
         marginTop: 250,

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React, { useContext, useRef, useState } from 'react'
 import { css, keyframes } from '@emotion/react'
-import { PokemonContext, BaseColorContext } from '../../pages/PokemonDetail'
+import { PokemonContext } from '../../pages/PokemonDetail'
 import { RefreshCountPokemon } from '../../App'
 import Modal from '../../components/utils/Modal'
 
@@ -10,11 +10,8 @@ import pokeballImgOpen from '../../assets/img/pokeball-open.png'
 
 export default function CatchPokemon() {
     // get pokemon data
-    const { loading, error, data } = useContext(PokemonContext)
+    const { loading, error, data, baseColor } = useContext(PokemonContext)
     const refreshCountPokemon = useContext(RefreshCountPokemon)
-    
-    // base color
-    const baseColor = useContext(BaseColorContext)
 
     const [isCatching, setIsCatching] = useState()
     const [openBall, setOpenBall] = useState()

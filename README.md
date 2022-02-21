@@ -1,6 +1,8 @@
 # Pages URL:
 Open [https://vadanium.github.io/pokemon/](https://vadanium.github.io/pokemon/)
 
+node v12.14.0
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
