@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useContext, useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { css, keyframes } from '@emotion/react'
 import { PokemonContext } from '../../pages/PokemonDetail'
 import { RefreshCountPokemon } from '../../App'

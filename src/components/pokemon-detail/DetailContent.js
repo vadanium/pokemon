@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Tabs from '../utils/Tabs'
 import LoadingBox from '../utils/LoadingBox'
 import { PokemonContext } from '../../pages/PokemonDetail'
